@@ -35,7 +35,7 @@ Pré-requis : PHP, composer et symfony CLI
 
 `symfony console make:form` : créer un formulaire
 
-`symfony console make:migrations` : créer les fichiers de migrations (à faire après avoir créé ou modifié des entités)
+`symfony console make:migration` : créer les fichiers de migrations (à faire après avoir créé ou modifié des entités)
 
 `symfony console d:m:m` : appliquer les migrations
 
