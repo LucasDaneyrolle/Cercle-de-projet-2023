@@ -23,4 +23,12 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
+
+    #[Route('/calendar', name: 'app_calendar')]
+    public function calendar(): Response
+    {
+        return $this->render('pages/calendar.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
 }
