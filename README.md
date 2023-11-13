@@ -9,7 +9,7 @@ Dev back : Rufin, Camil
 
 Lead front : Nicolas
 
-Dev front : Alice, Vincent
+Dev front : Alice, Vincent, Tom
 
 ### Branches :
 main : branche prod
