@@ -5,7 +5,7 @@ Git master : Lucas
 
 Lead back :  Enzo
 
-Dev back : Rufin, Camil
+Dev back : Rufin, Camil, Lucas
 
 Lead front : Nicolas
 
