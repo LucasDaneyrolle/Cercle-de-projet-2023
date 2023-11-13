@@ -42,6 +42,8 @@ Pré-requis : PHP, composer et symfony CLI
 ### Commandes git :
 `git clone lien_du_projet` : cloner le dépôt git
 
+`git pull` : pull les modifications de la branche actuelle
+
 `git checkout nom_de_la_branche` : changer de branche
 
 `git branch nom_de_la_branche` : créer une branche 
