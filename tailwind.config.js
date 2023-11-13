@@ -19,6 +19,9 @@ module.exports = {
     },
     width:{
       '17': '72px'
+    },
+    height:{
+      '17': '72px'
     }
   },
   plugins: [],
