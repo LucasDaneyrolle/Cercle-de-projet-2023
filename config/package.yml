@@ -1,0 +1,5 @@
+# config/packages.yaml
+
+imports:
+    - { resource: mercure.yaml }
+    # Autres imports...
