@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -32,6 +34,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: Types::ARRAY)]
     private array $roles = [];
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Event::class)]
+    private Collection $events;
+
+    public function __construct()
+    {
+        $this->events = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,5 +131,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // 
+    }
+
+    /**
+     * @return Collection<int, Event>
+     */
+    public function getEvents(): Collection
+    {
+        return $this->events;
+    }
+
+    public function addEvent(Event $event): static
+    {
+        if (!$this->events->contains($event)) {
+            $this->events->add($event);
+            $event->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEvent(Event $event): static
+    {
+        if ($this->events->removeElement($event)) {
+            // set the owning side to null (unless already changed)
+            if ($event->getUser() === $this) {
+                $event->setUser(null);
+            }
+        }
+
+        return $this;
     }
 }

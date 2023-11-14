@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,10 +26,10 @@ class IndexController extends AbstractController
     }
 
     #[Route('/', name: 'app_home')]
-    public function home(): Response
+    public function home(ArticleRepository $articleRepository): Response
     {
         return $this->render('pages/home.html.twig', [
-            'controller_name' => 'IndexController',
+            'articles' => $articleRepository->findAll(),
         ]);
     }
 
@@ -52,14 +53,6 @@ class IndexController extends AbstractController
     public function lessons(): Response
     {
         return $this->render('pages/lessons.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
-    }
-
-    #[Route('/events', name: 'app_events')]
-    public function events(): Response
-    {
-        return $this->render('pages/events.html.twig', [
             'controller_name' => 'IndexController',
         ]);
     }

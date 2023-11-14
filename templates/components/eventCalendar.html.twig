@@ -1,0 +1,9 @@
+{% set time = time|default('') %}
+{% set title = title|default('') %}
+{% set desc = desc|default('') %}
+
+<div class="border-b pb-4 border-gray-400 border-dashed">
+    <p class="text-xs font-light leading-3 text-gray-500">{{ time }}</p>
+    <a tabindex="0" class="focus:outline-none text-lg font-medium leading-5 text-gray-800 mt-2">{{ title }}</a>
+    <p class="text-sm pt-2 text-gray-600">{{ desc }}</p>
+</div>
