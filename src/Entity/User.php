@@ -43,6 +43,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->email;
     }
 
+    
     /**
      * A visual identifier that represents this user.
      *
@@ -83,6 +84,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+    
 
     public function getFirstName(): ?string
     {

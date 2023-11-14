@@ -3,53 +3,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Instantané</title>
+    <!-- Votre code HTML -->
 </head>
 <body>
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_row(form.Content) }}
+        {{ form_row(form.send) }}
+    {{ form_end(form) }}
+
     <div id="chat"></div>
-    <input type="text" id="message" placeholder="Entrez votre message">
-    <button onclick="sendMessage()">Envoyer</button>
+    
 
-    <script>
-        function pollServer() {
-            // Effectue une requête AJAX pour récupérer les messages
-            fetch('/get-messages')
-                .then(response => response.json())
-                .then(data => {
-                    // Met à jour le contenu du chat avec les messages reçus
-                    const chatDiv = document.getElementById('chat');
-                    chatDiv.innerHTML = data.map(message => `<p>${message}</p>`).join('');
 
-                    // Planifie la prochaine requête de polling après une pause (par exemple, 1 seconde)
-                    setTimeout(pollServer, 1000);
-                })
-                .catch(error => console.error('Erreur lors du polling :', error));
-        }
+{% endblock %}
 
-        function sendMessage() {
-            const messageInput = document.getElementById('message');
-            const message = messageInput.value;
 
-            // Effectue une requête AJAX pour envoyer un message
-            fetch('/send-message', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ message }),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    // Réinitialise le champ de saisie après l'envoi du message
-                    messageInput.value = '';
-                })
-                .catch(error => console.error('Erreur lors de l\'envoi du message :', error));
-        }
-
-        // Démarre le polling dès que la page est chargée
-        document.addEventListener('DOMContentLoaded', pollServer);
-    </script>
 </body>
 </html>
