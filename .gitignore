@@ -7,4 +7,6 @@
 /var/
 /vendor/
 .vscode
+
+/node_modules/
 ###< symfony/framework-bundle ###
