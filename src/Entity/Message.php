@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MessageRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: MessageRepository::class)]
@@ -13,8 +15,9 @@ class Message
     #[ORM\Column]
     private ?int $id = null;
 
+    
     #[ORM\Column]
-    private ?int $Conversation_id = null;
+    private ?int $user_id = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Content = null;
@@ -22,25 +25,25 @@ class Message
     #[ORM\Column]
     private ?\DateTimeImmutable $Created_at = null;
 
-    #[ORM\Column]
-    private ?int $user_id = null;
+
+
+    #[ORM\ManyToOne(inversedBy: 'messages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
+    #[ORM\ManyToMany(targetEntity: Conversation::class, inversedBy: 'messages')]
+    private Collection $conversation;
+
+    public function __construct()
+    {
+        $this->conversation = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getConversationId(): ?int
-    {
-        return $this->Conversation_id;
-    }
-
-    public function setConversationId(int $Conversation_id): static
-    {
-        $this->Conversation_id = $Conversation_id;
-
-        return $this;
-    }
 
     public function getContent(): ?string
     {
@@ -77,4 +80,41 @@ class Message
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): static
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Conversation>
+     */
+    public function getConversation(): Collection
+    {
+        return $this->conversation;
+    }
+
+    public function addConversation(Conversation $conversation): static
+    {
+        if (!$this->conversation->contains($conversation)) {
+            $this->conversation->add($conversation);
+        }
+
+        return $this;
+    }
+
+    public function removeConversation(Conversation $conversation): static
+    {
+        $this->conversation->removeElement($conversation);
+
+        return $this;
+    }
+    
 }
