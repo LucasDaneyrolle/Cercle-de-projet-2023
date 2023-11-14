@@ -56,12 +56,4 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
-
-    #[Route('/events', name: 'app_events')]
-    public function events(): Response
-    {
-        return $this->render('pages/events.html.twig', [
-            'controller_name' => 'IndexController',
-        ]);
-    }
 }
