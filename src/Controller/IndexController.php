@@ -8,6 +8,22 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
+    #[Route('/error404', name: 'app_error404')]
+    public function error404(): Response
+    {
+        return $this->render('pages/techniques/error404.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
+    #[Route('/maintenance', name: 'app_maintenance')]
+    public function maintenance(): Response
+    {
+        return $this->render('pages/techniques/maintenance.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
     #[Route('/connexion', name: 'app_connexion')]
     public function connexion(): Response
     {
@@ -28,6 +44,14 @@ class IndexController extends AbstractController
     public function home(): Response
     {
         return $this->render('pages/home.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
+    #[Route('/blogShow', name: 'app_blogShow')]
+    public function blogShow(): Response
+    {
+        return $this->render('pages/blogShow.html.twig', [
             'controller_name' => 'IndexController',
         ]);
     }
