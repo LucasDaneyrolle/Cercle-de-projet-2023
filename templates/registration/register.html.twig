@@ -18,9 +18,10 @@
 
 			{#
             <div>
-				{{ form_label(registrationForm.username, 'Nom', {'label_attr': {'class': 'block text-gray-700 mb-2 text-xs font-medium'}}) }}
-				{{ form_widget(registrationForm.username, {'attr': {'class': 'border-none rounded-full w-full p-3 text-sm text-purple-300 bg-purple-100 focus:outline-none focus:shadow-outline placeholder-purple-200'}}) }}
+				{{ form_label(registrationForm.lastName, 'Nom', {'label_attr': {'class': 'block text-gray-700 mb-2 text-xs font-medium'}}) }}
+				{{ form_widget(registrationForm.lastName, {'attr': {'class': 'border-none rounded-full w-full p-3 text-sm text-purple-300 bg-purple-100 focus:outline-none focus:shadow-outline placeholder-purple-200'}}) }}
 			</div>
+
 
 			<div>
 				{{ form_label(registrationForm.firstName, 'Prénom', {'label_attr': {'class': 'block text-gray-700 mb-2 text-xs font-medium'}}) }}
