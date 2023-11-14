@@ -1,0 +1,26 @@
+{% set image = image|default('') %}
+{% set image_alt = image_alt|default('') %}
+{% set title = title|default('') %}
+{% set date = date|default('') %}
+{% set user = user|default('') %}
+{% set labelColor = labelColor|default('') %}
+{% set titleColor = titleColor|default('') %}
+{% set labelTitle = labelTitle|default('') %}
+
+<div class="flex space-x-4">
+	<div class="h-32 w-40">
+		<img src="{{ image }}" alt="{{ image_alt }}" class="rounded-lg w-full h-full object-cover"/>
+	</div>
+	<div class="space-y-1 self-center">
+		<p class="text-2xs text-lavande-400">{{ date }}</p>
+		<h3 class="text-sm text-purple-700 font-semibold">{{ title }}</h3>
+		<div class="flex justify-between">
+			<p class="text-2xs text-purple-700">{{ user }}</p>
+			{% include 'components/category.html.twig' with {
+                'color': labelColor,
+                'titleColor': titleColor,
+                'title': labelTitle,
+            } %}
+		</div>
+	</div>
+</div>
