@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des évènements{% endblock %}
+
+{% block body %}
+	{% include 'components/navigation/topNav.html.twig' %}
+
+		{% for event in events %}
+			<a href="{{ path('app_event_view', {'id': event.id}) }}">{{ event.user.firstName }} {{ event.user.lastName}} <br>
+			Du {{ event.startDate|date('d/m/Y H:i') }} au {{ event.endDate|date('d/m/Y H:i') }} à {{ event.location }} <br>
+			{{ event.name }} <br> </a>
+			<br>
+		{% endfor %}
+
+	{% include 'components/navigation/bottomNav.html.twig' %}
+{% endblock %}

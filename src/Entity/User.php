@@ -35,13 +35,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: Types::ARRAY)]
     private array $roles = [];
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Message::class)]
-    private Collection $messages;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Event::class)]
+    private Collection $events;
 
     public function __construct()
     {
-        $this->messages = new ArrayCollection();
-    }
+        $this->events = new ArrayCollection();
+        }
 
     public function getId(): ?int
     {
@@ -82,11 +83,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * @see UserInterface
+     */
     public function getRoles(): array
     {
-        return $this->roles;
-    }
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
 
+        return array_unique($roles);
+    }
+    
     public function setRoles(array $roles): static
     {
         $this->roles = $roles;
@@ -127,29 +135,29 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, Message>
+     * @return Collection<int, Event>
      */
-    public function getMessages(): Collection
+    public function getEvents(): Collection
     {
-        return $this->messages;
+        return $this->events;
     }
 
-    public function addMessage(Message $message): static
+    public function addEvent(Event $event): static
     {
-        if (!$this->messages->contains($message)) {
-            $this->messages->add($message);
-            $message->setUser($this);
+        if (!$this->events->contains($event)) {
+            $this->events->add($event);
+            $event->setUser($this);
         }
 
         return $this;
     }
 
-    public function removeMessage(Message $message): static
+    public function removeEvent(Event $event): static
     {
-        if ($this->messages->removeElement($message)) {
+        if ($this->events->removeElement($event)) {
             // set the owning side to null (unless already changed)
-            if ($message->getUser() === $this) {
-                $message->setUser(null);
+            if ($event->getUser() === $this) {
+                $event->setUser(null);
             }
         }
 

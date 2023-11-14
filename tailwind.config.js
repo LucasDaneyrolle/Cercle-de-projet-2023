@@ -9,19 +9,39 @@ module.exports = {
     extend: {
       colors: {
         purple: {
-          100: '#CD9AFF',
-          200: '#8308FF'
+          100: '#FEFCFF',
+          200: '#F8F0FF',
+          500: '#8308FF',
+          700: '#270B44',
+        },
+        lavande: {
+          400: '#B8A7C9',
+          500: '#8556B2',
+        },
+        blue: {
+          100: '#E6F6FF',
+          500: '#0747EB',
+        },
+        green: {
+          100: '#E0FFE1',
+          500: '#046A0E',
+        },
+        orange: {
+          100: '#FFEFE0',
+          500: '#B85712',
         }
+      },
+      fontSize: {
+        '3xs': '8px',
+        '2xs': '10px',
+        '3xl': '32px'
+      },
+      width: {
+        '17': '72px'
+      },
+      height: {
+        '17': '72px'
       }
-    },
-    fontSize: {
-      xxs: '8px'
-    },
-    width:{
-      '17': '72px'
-    },
-    height:{
-      '17': '72px'
     }
   },
   plugins: [],
