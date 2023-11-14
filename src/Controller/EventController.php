@@ -32,4 +32,11 @@ class EventController extends AbstractController
             'eventForm' => $form
         ]);
     }
+    #[Route('/event-view', name: 'app_event')]
+    public function eventView(): Response
+    {
+        return $this->render('event/event-view.html.twig', [
+            'controller_name' => 'EventController',
+        ]);
+    }
 }
