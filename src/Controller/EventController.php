@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class EventController extends AbstractController
 {
-    #[Route('/new_event', name: 'app_event')]
+    #[Route('/new_event', name: 'app_new_event')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $event = new Event();
@@ -24,7 +24,7 @@ class EventController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_event');
+            return $this->redirectToRoute('app_new_event');
         }
 
         return $this->render('event/new.html.twig', [
@@ -32,11 +32,22 @@ class EventController extends AbstractController
             'eventForm' => $form
         ]);
     }
-    #[Route('/event-view', name: 'app_event')]
-    public function eventView(): Response
+
+    #[Route('/events', name: 'app_events')]
+    public function events(EntityManagerInterface $em): Response
     {
-        return $this->render('event/event-view.html.twig', [
-            'controller_name' => 'EventController',
+        $events = $em->getRepository(Event::class)->findAll();
+
+        return $this->render('event/events.html.twig', [
+            'events' => $events
+        ]);
+    }
+
+    #[Route('/events/{id}', name: 'app_event_show')]
+    public function show_event(Event $event): Response
+    {
+        return $this->render('event/show_event.html.twig', [
+            'event' => $event
         ]);
     }
 }
