@@ -7,4 +7,6 @@
 /var/
 /vendor/
 .vscode
+
+composer.lock
 ###< symfony/framework-bundle ###
