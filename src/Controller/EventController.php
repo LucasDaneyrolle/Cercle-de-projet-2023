@@ -24,7 +24,7 @@ class EventController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            return $this->redirectToRoute('calendar');
+            return $this->redirectToRoute('app_event');
         }
 
         return $this->render('event/new.html.twig', [
