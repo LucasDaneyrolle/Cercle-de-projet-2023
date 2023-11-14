@@ -32,10 +32,34 @@ class IndexController extends AbstractController
         ]);
     }
 
+    #[Route('/messages', name: 'app_messages')]
+    public function messages(): Response
+    {
+        return $this->render('pages/messages.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
     #[Route('/calendar', name: 'app_calendar')]
     public function calendar(): Response
     {
         return $this->render('pages/calendar.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
+    #[Route('/lessons', name: 'app_lessons')]
+    public function lessons(): Response
+    {
+        return $this->render('pages/lessons.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
+    #[Route('/events', name: 'app_events')]
+    public function events(): Response
+    {
+        return $this->render('pages/events.html.twig', [
             'controller_name' => 'IndexController',
         ]);
     }
