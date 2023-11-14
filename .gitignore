@@ -7,6 +7,8 @@
 /var/
 /vendor/
 .vscode
+
+composer.lock
 ###< symfony/framework-bundle ###
 
 ###> symfony/webpack-encore-bundle ###
