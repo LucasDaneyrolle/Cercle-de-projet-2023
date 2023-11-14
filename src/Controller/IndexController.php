@@ -48,10 +48,10 @@ class IndexController extends AbstractController
         ]);
     }
 
-    #[Route('/blogShow', name: 'app_blogShow')]
-    public function blogShow(): Response
+    #[Route('/details', name: 'app_details')]
+    public function details(): Response
     {
-        return $this->render('pages/blogShow.html.twig', [
+        return $this->render('pages/blog/details.html.twig', [
             'controller_name' => 'IndexController',
         ]);
     }

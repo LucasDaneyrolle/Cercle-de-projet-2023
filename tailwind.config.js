@@ -44,6 +44,9 @@ module.exports = {
       },
       maxWidth: {
         '2xs': '288px',
+      },
+      rotate: {
+        '45neg': '-45deg',
       }
     }
   },

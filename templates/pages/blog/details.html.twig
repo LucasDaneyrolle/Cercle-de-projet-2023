@@ -6,5 +6,9 @@
 {% block body %}
 	{% include 'components/navigation/topNav.html.twig' %}
 
+	{% include 'components/blog/detailsBlog.html.twig' with {
+				'placeholder': 'Rechercher un article'
+			} %}
+
 	{% include 'components/navigation/bottomNav.html.twig' %}
 {% endblock %}
