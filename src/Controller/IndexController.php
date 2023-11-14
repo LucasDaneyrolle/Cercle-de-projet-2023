@@ -49,7 +49,7 @@ class IndexController extends AbstractController
         ]);
     }
 
-    #[Route('/details', name: 'app_details')]
+    #[Route('/detailsblog', name: 'app_details')]
     public function details(): Response
     {
         return $this->render('pages/blog/details.html.twig', [
