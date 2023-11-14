@@ -6,5 +6,30 @@
 {% block body %}
 	{% include 'components/topNav.html.twig' %}
 
+<div class="space-y-4">
+	{% include 'components/cards/blogCard.html.twig' with {
+		'image': asset('images/blog.png'),
+		'image_alt': 'hfdhd',
+		'date': '13 novembre',
+		'title': 'Framework Scrum les bases',
+		'user': 'Rufin Amouzou',
+		'labelColor': 'bg-green-100',
+		'titleColot': 'text-green-500',
+		'labelTitle': 'Partage',
+	} %}
+
+	{% include 'components/cards/blogCard.html.twig' with {
+		'image': asset('images/blog.png'),
+		'image_alt': 'hfdhd',
+		'date': '13 novembre',
+		'title': 'Framework Scrum les bases',
+		'user': 'Rufin Amouzou',
+		'labelColor': 'bg-green-100',
+		'titleColot': 'text-green-500',
+		'labelTitle': 'Partage',
+	} %}
+
+	</div>
+
 	{% include 'components/bottomNav.html.twig' %}
 {% endblock %}

@@ -24,7 +24,7 @@ module.exports = {
         },
         green: {
           100: '#E0FFE1',
-          500: '#8556B2',
+          500: '#046A0E',
         },
         orange: {
           100: '#FFEFE0',
@@ -32,7 +32,8 @@ module.exports = {
         }
       },
       fontSize: {
-        xxs: '8px',
+        '3xs': '8px',
+        '2xs': '10px',
         '3xl': '32px'
       },
       width: {
