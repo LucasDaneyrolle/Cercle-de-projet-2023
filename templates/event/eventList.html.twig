@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!
+{% endblock %}
+
+{% block body %}
+	{% include 'components/navigation/topNav.html.twig' %}
+
+	<div class="p-6 space-y-6 overflow-hidden">
+		<div class="flex justify-between">
+			<h2 class="text-3xl font-semibold">Dernière actu du BDE</h2>
+            {% include 'components/addBtn.html.twig' %}
+		</div>
+
+        {% include 'components/cards/eventCard.html.twig' with {
+            'title': "Sortie ski dans les alpes avec les promos G4",
+            'image': asset('images/ski.jpg'),
+            'image_user': asset('images/louis.png'),
+            'image_alt': 'User',
+            'username': 'Louis Gazado',
+            'dateDeb': '13 Novembre',
+            'dateFin': '14 Novembre',
+            'location': 'Lyon'
+        } %}
+
+        {% include 'components/cards/eventCard.html.twig' with {
+            'title': "Sortie ski dans les alpes avec les promos G4",
+            'image': asset('images/ski.jpg'),
+            'image_user': asset('images/louis.png'),
+            'image_alt': 'User',
+            'username': 'Louis Gazado',
+            'dateDeb': '13 Novembre',
+            'dateFin': '14 Novembre',
+            'location': 'Lyon'
+        } %}
+
+        {% include 'components/cards/eventCard.html.twig' with {
+            'title': "Sortie ski dans les alpes avec les promos G4",
+            'image': asset('images/ski.jpg'),
+            'image_user': asset('images/louis.png'),
+            'image_alt': 'User',
+            'username': 'Louis Gazado',
+            'dateDeb': '13 Novembre',
+            'dateFin': '14 Novembre',
+            'location': 'Lyon'
+        } %}
+
+        {% include 'components/cards/eventCard.html.twig' with {
+            'title': "Sortie ski dans les alpes avec les promos G4",
+            'image': asset('images/ski.jpg'),
+            'image_user': asset('images/louis.png'),
+            'image_alt': 'User',
+            'username': 'Louis Gazado',
+            'dateDeb': '13 Novembre',
+            'dateFin': '14 Novembre',
+            'location': 'Lyon'
+        } %}
+
+
+	</div>
+	{% include 'components/navigation/bottomNav.html.twig' %}
+
+    <div style="height:200px"></div>
+{% endblock %}
+

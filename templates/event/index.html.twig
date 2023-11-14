@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!
+{% endblock %}
+
+{% block body %}
+	{% include 'components/navigation/topNav.html.twig' %}
+
+	<div class="p-6 space-y-6 overflow-hidden">
+		<div class="flex justify-between">
+			<h2 class="text-3xl font-semibold">Dernière actu du BDE</h2>
+		</div>
+
+        {% include 'components/cards/eventCard.html.twig' with {
+            'title': "Sortie ski dans les alpes avec les promos G4",
+            'image': asset('images/ski.jpg'),
+            'image_user': asset('images/louis.png'),
+            'image_alt': 'User',
+            'username': 'Louis Gazado',
+            'dateDeb': '13 Novembre',
+            'dateFin': '14 Novembre',
+            'location': 'Lyon'
+        } %}
+
+        <div class="flex justify-between items-center">
+			<h2 class="text-3xl font-semibold">Événements</h2>
+            <a href="" class="h-fit">
+                <button type="button" class="text-purple-500 text-xs font-medium">
+                    Voir tout
+                </button>
+            </a>
+		</div>
+
+        <div class="inline-flex space-x-4">
+            {% include 'components/cards/eventCardVertical.html.twig' with {
+                'title': "Soirée d'intégration au BBC dans le vieux Lyon",
+                'image': asset('images/ski.jpg'),
+                'image_user': asset('images/louis.png'),
+                'image_user2': asset('images/louis.png'),
+                'image_alt': 'Fond événements',
+            } %}
+
+            {% include 'components/cards/eventCardVertical.html.twig' with {
+                'title': "Soirée au BBC dans le vieux Lyon",
+                'image': asset('images/blog.png'),
+                'image_user': asset('images/louis.png'),
+                'image_user2': asset('images/louis.png'),
+                'image_alt': 'Fond événements',
+            } %}
+
+            {% include 'components/cards/eventCardVertical.html.twig' with {
+                'title': "Voyage à Zanzibar",
+                'image': asset('images/blog.png'),
+                'image_user': asset('images/louis.png'),
+                'image_alt': 'Fond événements',
+            } %}
+        </div>
+
+	</div>
+	{% include 'components/navigation/bottomNav.html.twig' %}
+
+    <div style="height:200px"></div>
+{% endblock %}
+

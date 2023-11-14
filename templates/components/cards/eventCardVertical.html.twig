@@ -1,0 +1,35 @@
+{% set title = title|default('') %}
+{% set image = image|default('') %}
+{% set image_user = image_user|default('') %}
+{% set image_user2 = image_user2|default('') %}
+{% set image_user3 = image_user3|default('') %}
+{% set image_alt = image_alt|default('') %}
+
+<div class="w-36">
+    <img src="{{ image }}" alt="{{ image_alt }}" class="relative rounded-t-2xl w-full h-28 object-cover"/>
+
+    <div class="absolute flex -mt-4 ml-3">
+
+        <div class="relative">
+            <img src="{{ image_user }}" alt="user" class="border border-white w-7 h-7 rounded-full object-cover"/>
+        </div>
+        
+        {% if image_user2 is defined and image_user2 %}
+            <div class="relative -ml-2">
+                <img src="{{ image_user2 }}" alt="user" class="border border-white w-7 h-7 rounded-full object-cover"/>
+            </div>
+        {% endif %}
+
+        {% if image_user3 is defined and image_user3 %}
+            <div class="relative -ml-2">
+                <img src="{{ image_user3 }}" alt="user" class="border border-white w-7 h-7 rounded-full object-cover"/>
+            </div>
+            {% endif %}
+    </div>    
+
+    <div class="rounded-b-2xl p-3 bg-white h-20" style="box-shadow: 0px 4px 4px 0px rgba(131, 8, 255, 0.03);">
+        <p class="text-xs font-semibold h-full line-clamp-3 text-stroke mt-3">
+            {{ title }} 
+        </p>
+    </div>
+</div>
