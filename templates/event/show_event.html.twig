@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Evènement {{event.name}} {% endblock %}
+
+{% block body %}
+	{% include 'components/navigation/topNav.html.twig' %}
+
+        {{ event.user.firstName }} {{ event.user.lastName}} <br>
+        Du {{ event.startDate|date('d/m/Y H:i') }} au {{ event.endDate|date('d/m/Y H:i') }} à {{ event.location }} <br>
+        {{ event.name }} <br>
+        {{ event.description }} <br>
+        <br>
+
+	{% include 'components/navigation/bottomNav.html.twig' %}
+{% endblock %}
