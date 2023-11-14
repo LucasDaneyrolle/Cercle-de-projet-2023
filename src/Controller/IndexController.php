@@ -8,6 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
+    #[Route('/connexion', name: 'app_connexion')]
+    public function connexion(): Response
+    {
+        return $this->render('pages/connexion.html.twig', [
+            'controller_name' => 'IndexController',
+        ]);
+    }
+
     #[Route('/index', name: 'app_index')]
     public function index(): Response
     {
