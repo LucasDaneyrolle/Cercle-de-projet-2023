@@ -6,5 +6,25 @@
 {% block body %}
 	{% include 'components/navigation/topNav.html.twig' %}
 
+	<div class=" space-y-5 pb-3">
+		{% include 'components/messages/myself.html.twig' with {
+				'message': 'Salut, pas de soucis',
+                'time': '12:30'
+		} %}
+
+		{% include 'components/messages/notMe.html.twig' with {
+				'message': 'Salut, pas de soucis',
+                'time': '12:30'
+		} %}
+
+		{% include 'components/messages/notMePicture.html.twig' with {
+                'image': asset('images/blog.png'),
+				'image_alt': 'hfdhd',
+				'user': 'GUEGAN Alice',
+				'message': 'Salut, pas de soucis Salut, pas de soucis Salut, pas de soucis Salut, pas de soucis',
+                'time': '12:30'
+		} %}
+	</div>
+
 	{% include 'components/navigation/bottomNav.html.twig' %}
 {% endblock %}

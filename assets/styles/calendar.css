@@ -109,7 +109,7 @@
 
 .calendar .days .day.today {
     color: #fff;
-    background: var(--primary-color);
+    background: #5707A8;
 }
 
 .credits a {
