@@ -16,18 +16,15 @@
 			{{ form_errors(registrationForm) }}
 			{{ form_start(registrationForm) }}
 
-			{#
-            <div>
+			<div>
 				{{ form_label(registrationForm.lastName, 'Nom', {'label_attr': {'class': 'block text-gray-700 mb-2 text-xs font-medium'}}) }}
 				{{ form_widget(registrationForm.lastName, {'attr': {'class': 'border-none rounded-full w-full p-3 text-sm text-purple-300 bg-purple-100 focus:outline-none focus:shadow-outline placeholder-purple-200'}}) }}
 			</div>
-
 
 			<div>
 				{{ form_label(registrationForm.firstName, 'Prénom', {'label_attr': {'class': 'block text-gray-700 mb-2 text-xs font-medium'}}) }}
 				{{ form_widget(registrationForm.firstName, {'attr': {'class': 'border-none rounded-full w-full p-3 text-sm text-purple-300 bg-purple-100 focus:outline-none focus:shadow-outline placeholder-purple-200'}}) }}
 			</div>
-            #}
 
 			<div>
 				{{ form_label(registrationForm.email, 'Email', {'label_attr': {'class': 'block text-gray-700 mb-2 text-xs font-medium'}}) }}
@@ -41,7 +38,7 @@
 
 			{{ form_row(registrationForm.agreeTerms) }}
 
-			<button type="submit" class="bg-purple-300 py-3 px-8 rounded-full text-base mb-4 w-full text-white">Se connecter</button>
+			<button type="submit" class="bg-purple-300 py-3 px-8 rounded-full text-base mb-4 w-full text-white">Créer mon compte</button>
 			{{ form_end(registrationForm) }}
 
 			<p class="text-xs">Vous avez déjà un compte ?
