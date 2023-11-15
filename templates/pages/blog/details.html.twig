@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article détail
+{% endblock %}
+
+{% block body %}
+	{% include 'components/navigation/topNav.html.twig' %}
+
+	{% include 'components/blog/detailsBlog.html.twig' with {
+				'imageProfil': 'images/logo.png',
+				'imageProfil_alt': 'fzfez',
+				'image': 'images/blog.png',
+				'image_alt': 'fzfez',
+				'user': 'GUEGAN Alice',
+				'labelColor': 'bg-green-100',
+				'titleColot': 'text-green-500',
+				'labelTitle': 'Partage',
+				'title': 'Le framework Scrum les bases',
+				'content': "L'intégration continue va permettre de lancer vos tests et vos builds directement sur le serveur via des pipelines. Les pipelines sont des groupes de jobs qui vont définir les scripts à exécuter sur le serveur. L'intégration continue va permettre de lancer vos tests et vos builds directement sur le serveur via des pipelines. Les pipelines sont des groupes de jobs qui vont définir les scripts à exécuter sur le serveur.L'intégration continue va permettre de lancer vos tests et vos builds directement sur le serveur via des pipelines. Les pipelines sont des groupes de jobs qui vont définir les scripts à exécuter sur le serveur.L'intégration continue va permettre de lancer vos tests et vos builds directement sur le serveur via des pipelines. Les pipelines sont des groupes de jobs qui vont définir les scripts à exécuter sur le serveur."
+			} %}
+
+	{% include 'components/navigation/bottomNav.html.twig' %}
+{% endblock %}
